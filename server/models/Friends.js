@@ -5,7 +5,7 @@ const FriendSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  age: {
+  contact: {
     type: Number,
     required: true,
   },

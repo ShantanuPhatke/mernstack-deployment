@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
 const mongoose = require("mongoose");
 const FriendModel = require("./models/Friends");
 require("dotenv").config();
+
+app.use(cors());
 
 /// DATABASE CONNECTION
 mongoose.connect(
@@ -10,10 +13,14 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.get("/insert", async (req, res) => {
-  const friend = new FriendModel({ name: "Jessic", age: 38 });
+app.get("/addfriend", async (req, res) => {
+  const name = req.body.name;
+  const contact = req.body.contact;
+
+  const friend = new FriendModel({ name: name, contact: contact });
   await friend.save();
-  res.send("Inserted DATA");
+
+  res.send("Success");
 });
 
 app.get("/read", async (req, res) => {
