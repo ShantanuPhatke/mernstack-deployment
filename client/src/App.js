@@ -4,31 +4,31 @@ import Axios from "axios";
 
 function App() {
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [contact, setContact] = useState(0);
   const [listOfFriends, setListOfFriends] = useState([]);
 
   const addFriend = () => {
     Axios.post("https://mernstack-deployment.herokuapp.com/addfriend", {
       name: name,
-      age: age,
+      contact: contact,
     }).then((response) => {
       setListOfFriends([
         ...listOfFriends,
-        { _id: response.data._id, name: name, age: age },
+        { _id: response.data._id, name: name, contact: contact },
       ]);
     });
   };
 
   const updateFriend = (id) => {
-    const newAge = prompt("Enter new age: ");
+    const newContact = prompt("Enter new contact: ");
 
     Axios.put("https://mernstack-deployment.herokuapp.com/update", {
-      newAge: newAge,
+      newContact: newContact,
       id: id,
     }).then(() => {
       setListOfFriends(
         listOfFriends.map((val) => {
-          return val._id == id ? { _id: id, name: val.name, age: newAge } : val;
+          return val._id == id ? { _id: id, name: val.name, contact: newContact } : val;
         })
       );
     });
@@ -61,20 +61,20 @@ function App() {
       <div className="inputs">
         <input
           type="text"
-          placeholder="Friend name..."
+          placeholder="Name..."
           onChange={(event) => {
             setName(event.target.value);
           }}
         />
         <input
           type="number"
-          placeholder="Friend age..."
+          placeholder="Contact..."
           onChange={(event) => {
-            setAge(event.target.value);
+            setContact(event.target.value);
           }}
         />
 
-        <button onClick={addFriend}>Add Friend</button>
+        <button onClick={addFriend}>Add Contact</button>
       </div>
 
       <div className="listOfFriends">
@@ -83,7 +83,7 @@ function App() {
             <div className="friendContainer">
               <div className="friend">
                 <h3>Name: {val.name}</h3>
-                <h3> Age: {val.age}</h3>
+                <h3> Contact: {val.contact}</h3>
               </div>
               <button
                 onClick={() => {
