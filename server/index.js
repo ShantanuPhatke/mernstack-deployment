@@ -14,6 +14,12 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
+app.get("/", (req, res) => {
+  res.json({
+    server_status: "Ok"
+  });
+})
+
 app.post("/addfriend", async (req, res) => {
   const name = req.body.name;
   const contact = req.body.contact;
