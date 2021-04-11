@@ -6,6 +6,7 @@ const FriendModel = require("./models/Friends");
 require("dotenv").config();
 
 app.use(cors());
+app.use(express.json());
 
 /// DATABASE CONNECTION
 mongoose.connect(
@@ -13,7 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.post("/addfriend", async (req, res) => {
+app.get("/addfriend", async (req, res) => {
   const name = req.body.name;
   const contact = req.body.contact;
 
