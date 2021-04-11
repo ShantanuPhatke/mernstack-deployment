@@ -6,7 +6,7 @@ require("dotenv").config();
 
 /// DATABASE CONNECTION
 mongoose.connect(
-  "mongodb://localhost:27017/tutorialmern?readPreference=primary&appname=MongoDB%20Compass&ssl=false",
+  `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@mern.shkwo.mongodb.net/mern-deployment?retryWrites=true&w=majority`,
   { useNewUrlParser: true }
 );
 
