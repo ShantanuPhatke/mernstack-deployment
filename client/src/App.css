@@ -6,6 +6,7 @@
 body {
   margin: 0;
   padding: 0;
+  background: #121212;
 }
 .inputs {
   height: 400px;
@@ -14,28 +15,40 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #93fe83;
+  background-color: #1f1b24;
 }
 
 .inputs input {
   width: 200px;
   height: 50px;
-  font-size: 18px;
+  font-size: 14px;
   margin: 10px;
-  padding-left: 10px;
+  padding-left: 15px;
+  background: #121212;
+  border: 1px solid #121212;
+  color: white;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+.inputs input:focus {
+  outline: none;
+  border: 0.5px solid #bb86fc;
 }
 
 .inputs button {
   border: none;
-  width:  150px;
-  height: 50px;
-  background-color: #13a90b;
-  color: white;
-  border-radius: 8px;
+  width: 120px;
+  height: 40px;
+  background-color: #1f1b24;
+  border: 1px solid #bb86fc;
+  color: #bb86fc;
+  border-radius: 5px;
   font-size: 15px;
+  margin: 10px;
 }
 
- button:hover {
+button:hover {
   cursor: pointer;
 }
 
@@ -51,14 +64,13 @@ body {
   display: flex;
   flex-direction: row;
   margin: 10px;
-  font-family: 'Courier New', Courier, monospace;
-
+  font-family: "Courier New", Courier, monospace;
 }
 
 .friend {
   width: 400px;
   height: 60px;
-  background-color: #13a90b;
+  background-color: #1f1b24;
   color: white;
   display: flex;
 }
@@ -69,13 +81,29 @@ body {
 .friendContainer button {
   width: 80px;
   height: 60px;
-  border: 2px solid black;
-  background-color: #13a90b;
+  border: none;
+  background-color: #1f1b24;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
+  transition: 0.3s ease;
+}
 
+.friendContainer button:hover {
+  background: #bb86fc;
 }
 
 #removeBtn {
-  border-left: none
+  border-left: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
