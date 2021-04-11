@@ -35,7 +35,7 @@ app.get("/read", async (req, res) => {
 });
 
 app.put("/update", async (req, res) => {
-  const newContact = req.body.contact;  
+  const newContact = req.body.newContact;  
   const id = req.body.id;
 
   try {
