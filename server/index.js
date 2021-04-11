@@ -33,6 +33,29 @@ app.get("/read", async (req, res) => {
   });
 });
 
+app.put("/update", async (req, res) => {
+  const newContact = req.body.contact;  
+  const id = req.body.id;
+
+  try {
+    await FriendModel.findById(id, (error, friendToUpdate) => {
+      friendToUpdate.contact = Number(newContact);
+      friendToUpdate.save();
+    })
+  } catch (err) {
+    console.log(err);
+  }
+
+  res.send("Updated");
+});
+
+app.delete('/delete/:id', async (req, res) => {
+  const id = req.params.id;
+  await FriendModel.findByIdAndRemove(id).exec();
+  
+  res.send("ItemDeleted");
+})
+
 app.listen(process.env.PORT || 3001, () => {
   console.log("You are connected!");
 });
