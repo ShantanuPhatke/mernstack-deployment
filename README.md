@@ -8,4 +8,4 @@ The front-end ReactJS application is hosted on Netlify - https://mernstack-deplo
 
 The application uses MongoDB, which is hosted on cloud as well.
 
-Original source code: [PedroTech](https://www.youtube.com/watch?v=Z_D4w6HmT8k&t=1396s)
+###### Original source code: [PedroTech](https://www.youtube.com/watch?v=Z_D4w6HmT8k&t=1396s)
